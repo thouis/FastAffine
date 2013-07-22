@@ -20,9 +20,9 @@ fastaffine: fastaffine.o
 fastaffine.o: fastaffine.c
 	$(CC) -c $^ -I$(INCDIR) -I$(PLATINCDIR)
 
-CYTHON=../../cython.py
+CYTHON=cython
 fastaffine.c: fastaffine.pyx
-	@$(PYTHON) $(CYTHON) --embed fastaffine.pyx
+	$(CYTHON) --embed fastaffine.pyx
 
 all: fastaffine
 
