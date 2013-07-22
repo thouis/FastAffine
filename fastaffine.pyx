@@ -41,8 +41,8 @@ cdef void _remap(cython.uchar [:, :] input,
    for i in prange(output.shape[0], schedule='static', num_threads=16):
        for j in range(output.shape[1]):
            # apply rigid transformation
-           ti = i - base_i - offset_i
-           tj = j - base_j - offset_j
+           ti = i + base_i - offset_i
+           tj = j + base_j - offset_j
            interped_row = ti * R[0, 0] + tj * R[0, 1] + T[0, 0] + offset_i
            interped_col = ti * R[1, 0] + tj * R[1, 1] + T[1, 0] + offset_j
 

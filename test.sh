@@ -1,0 +1,1 @@
+python doit.py /Volumes/THOUIS/Ray_Affine/Section_10_Params/Tile_r1-c1_W02_sec010.tif 1.00813429 0.00354012 0.02035046 1.01141966 5412.17802028  19.74260633 -9184 -4952 40064 51661 mine.tif
