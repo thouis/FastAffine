@@ -1,0 +1,18 @@
+# Makefile for creating our standalone Cython program
+PYVERSION=2.3
+PYPREFIX=/usr
+INCLUDES=-I$(PYPREFIX)/include/python$(PYVERSION)
+
+fastaffine: fastaffine.o
+	gcc -o $@ $^ -lpython$(PYVERSION)
+
+fastaffine.o: fastaffine.c
+	gcc -c $^ $(INCLUDES)
+
+fastaffine.c: fastaffine.pyx
+	@python ../../cython.py --embed fastaffine.pyx
+
+all: fastaffine
+
+clean:
+	@rm -f *~ *.o *.so core core.* *.c fastaffine
