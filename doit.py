@@ -1,4 +1,5 @@
 import sys
+sys.path.append('C:/Python27/lib/site-packages')
 import cv2
 import numpy as np
 from fastaffine import remap
@@ -10,10 +11,10 @@ if __name__ == '__main__':
                   [trans[2], trans[3]]])
     T = np.array([[trans[4]],
                   [trans[5]]])
-    base_i = int(trans[6])
-    base_j = int(trans[7])
-    outw = int(trans[8])
-    outh = int(trans[9])
+    base_j = int(trans[6])
+    base_i = int(trans[7])
+    outw = int(trans[8]) - base_j
+    outh = int(trans[9]) - base_i
     output = np.zeros((outh, outw), dtype=np.uint8)
     offset_i = srcim.shape[0] // 2
     offset_j = srcim.shape[1] // 2
