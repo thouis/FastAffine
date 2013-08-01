@@ -15,8 +15,7 @@ if __name__ == '__main__':
     base_i = int(trans[7]) - 1
     outw = int(trans[8]) - base_j
     outh = int(trans[9]) - base_i
+    downscale_factor = int(sys.argv[12])
     output = np.zeros((outh, outw), dtype=np.uint8)
-    offset_i = srcim.shape[0] // 2
-    offset_j = srcim.shape[1] // 2
-    remap(srcim, output, R, T, False, base_i, base_j, offset_i, offset_j)
-    cv2.imwrite(sys.argv[12], output)
+    remap(srcim, output, R, T, False, base_i, base_j, downscale_factor)
+    cv2.imwrite(sys.argv[13], output)
